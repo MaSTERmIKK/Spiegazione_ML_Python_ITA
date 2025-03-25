@@ -1,0 +1,24 @@
+Come Utilizzare i file:
+
+Genera il dataset:
+Esegui lo script per la preparazione dei dati:
+
+python data_preparation.py
+
+
+Addestra il modello:
+Carica i dati di training, addestra il modello e salvalo:
+
+python train_model.py
+
+
+Valuta il modello:
+Carica il dataset di test e il modello per valutarne le performance:
+
+python evaluate_model.py
+
+
+Effettua una previsione:
+Esegui lo script per effettuare una previsione su un singolo campione:
+
+python predict_sample.py
