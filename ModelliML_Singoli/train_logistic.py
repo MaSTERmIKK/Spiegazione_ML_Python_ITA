@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 """
 Carica il dataset di training dal file NPZ, addestra un modello di Logistic Regression
 e salva il modello in 'logistic_model.pkl'.
