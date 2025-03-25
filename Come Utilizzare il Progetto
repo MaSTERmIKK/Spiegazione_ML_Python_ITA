@@ -1,0 +1,12 @@
+Come Utilizzare il Progetto
+
+Clonare il Repository:
+
+git clone <URL_DEL_REPOSITORY>
+cd <NOME_DEL_REPOSITORY>
+
+Eseguire lo Script:
+
+Il codice è contenuto in un singolo file. Per eseguirlo, basta lanciare:
+
+python ml_example.py
