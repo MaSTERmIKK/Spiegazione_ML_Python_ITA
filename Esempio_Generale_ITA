@@ -1,0 +1,184 @@
+#!/usr/bin/env python3
+"""
+Esempio pratico di utilizzo di un modello di Machine Learning in Python.
+
+Questo script mostra come:
+- Generare un dataset sintetico per la classificazione.
+- Dividere il dataset in dati di training e testing.
+- Addestrare un modello (in questo caso, una regressione logistica).
+- Valutare le performance del modello.
+- Effettuare previsioni su nuovi dati.
+- Salvare e ricaricare il modello addestrato.
+
+Il codice è strutturato in funzioni per facilitare la comprensione e la modularità.
+"""
+
+import numpy as np
+import matplotlib.pyplot as plt
+import pickle
+from sklearn.datasets import make_classification
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LogisticRegression
+from sklearn.metrics import accuracy_score, confusion_matrix, classification_report
+
+def generate_data(n_samples=1000, n_features=2, n_informative=2, n_redundant=0, random_state=42):
+    """
+    Genera un dataset sintetico per problemi di classificazione.
+
+    Parametri:
+    - n_samples: Numero totale di campioni.
+    - n_features: Numero totale di feature.
+    - n_informative: Numero di feature informative.
+    - n_redundant: Numero di feature ridondanti.
+    - random_state: Seed per la riproducibilità.
+
+    Ritorna:
+    - X: Matrice delle feature.
+    - y: Vettore dei target.
+    """
+    X, y = make_classification(n_samples=n_samples,
+                               n_features=n_features,
+                               n_informative=n_informative,
+                               n_redundant=n_redundant,
+                               random_state=random_state)
+    return X, y
+
+def split_data(X, y, test_size=0.3, random_state=42):
+    """
+    Divide il dataset in set di training e test.
+
+    Parametri:
+    - X: Matrice delle feature.
+    - y: Vettore dei target.
+    - test_size: Proporzione dei dati da utilizzare per il test.
+    - random_state: Seed per la divisione casuale.
+
+    Ritorna:
+    - X_train, X_test, y_train, y_test
+    """
+    return train_test_split(X, y, test_size=test_size, random_state=random_state)
+
+def train_model(X_train, y_train):
+    """
+    Addestra un modello di regressione logistica sui dati di training.
+
+    Parametri:
+    - X_train: Matrice delle feature del training set.
+    - y_train: Vettore dei target del training set.
+
+    Ritorna:
+    - model: Il modello addestrato.
+    """
+    model = LogisticRegression()
+    model.fit(X_train, y_train)
+    return model
+
+def evaluate_model(model, X_test, y_test):
+    """
+    Valuta il modello utilizzando il set di test e stampa i risultati.
+
+    Parametri:
+    - model: Il modello addestrato.
+    - X_test: Matrice delle feature del test set.
+    - y_test: Vettore dei target del test set.
+    """
+    y_pred = model.predict(X_test)
+    accuracy = accuracy_score(y_test, y_pred)
+    cm = confusion_matrix(y_test, y_pred)
+    report = classification_report(y_test, y_pred)
+
+    print("Accuratezza del modello: {:.2f}%".format(accuracy * 100))
+    print("Matrice di confusione:\n", cm)
+    print("Report di classificazione:\n", report)
+
+def predict_single(model, sample):
+    """
+    Effettua una previsione su un singolo campione.
+
+    Parametri:
+    - model: Il modello addestrato.
+    - sample: Array contenente le feature del campione.
+
+    Ritorna:
+    - La previsione per il campione.
+    """
+    sample = np.array(sample).reshape(1, -1)  # Assicura che l'input sia bidimensionale
+    prediction = model.predict(sample)
+    return prediction[0]
+
+def plot_data(X, y):
+    """
+    Visualizza i dati in un grafico a dispersione.
+
+    Parametri:
+    - X: Matrice delle feature (si assume 2D per la visualizzazione).
+    - y: Vettore dei target.
+    """
+    plt.figure(figsize=(8, 6))
+    scatter = plt.scatter(X[:, 0], X[:, 1], c=y, cmap='viridis', alpha=0.7)
+    plt.xlabel("Feature 1")
+    plt.ylabel("Feature 2")
+    plt.title("Visualizzazione del Dataset")
+    plt.colorbar(scatter, label="Classe")
+    plt.show()
+
+def save_model(model, filename='model.pkl'):
+    """
+    Salva il modello addestrato su file utilizzando pickle.
+
+    Parametri:
+    - model: Il modello addestrato.
+    - filename: Nome del file in cui salvare il modello.
+    """
+    with open(filename, 'wb') as file:
+        pickle.dump(model, file)
+    print("Modello salvato in", filename)
+
+def load_model(filename='model.pkl'):
+    """
+    Carica un modello precedentemente salvato da file.
+
+    Parametri:
+    - filename: Nome del file da cui caricare il modello.
+
+    Ritorna:
+    - model: Il modello caricato.
+    """
+    with open(filename, 'rb') as file:
+        model = pickle.load(file)
+    print("Modello caricato da", filename)
+    return model
+
+def main():
+    # 1. Generazione del dataset sintetico
+    X, y = generate_data()
+    print("Dataset generato: {} campioni, {} feature.".format(X.shape[0], X.shape[1]))
+    
+    # 2. Visualizzazione dei dati (se il dataset è a 2 dimensioni)
+    if X.shape[1] == 2:
+        plot_data(X, y)
+    
+    # 3. Suddivisione del dataset in training e test
+    X_train, X_test, y_train, y_test = split_data(X, y)
+    print("Dataset diviso in training e test.")
+
+    # 4. Addestramento del modello
+    model = train_model(X_train, y_train)
+    print("Modello addestrato.")
+
+    # 5. Valutazione del modello
+    evaluate_model(model, X_test, y_test)
+
+    # 6. Salvataggio del modello addestrato
+    save_model(model)
+
+    # 7. Caricamento del modello (per dimostrazione)
+    loaded_model = load_model()
+
+    # 8. Previsione su un nuovo campione (primo campione del set di test)
+    sample = X_test[0]
+    prediction = predict_single(loaded_model, sample)
+    print("Previsione per il campione {}: {}".format(sample, prediction))
+
+if __name__ == '__main__':
+    main()
