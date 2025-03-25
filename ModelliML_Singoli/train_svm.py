@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 """
 Carica il dataset di training dal file NPZ, addestra un modello SVM
 e salva il modello in 'svm_model.pkl'.
