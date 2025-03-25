@@ -1,10 +1,12 @@
 # ML Esempio: Applicazione Pratica di Machine Learning
 
-Questo repository contiene un esempio pratico per l'uso di un modello di Machine Learning in Python. L'obiettivo è fornire un riferimento semplice e modulare per chi desidera imparare ad utilizzare modelli ML per la classificazione.
+Questo repository contiene vari esempi pratici per l'uso di modelli di ML di Machine Learning in Python. 
+
+L'obiettivo è fornire un riferimento semplice e modulare per chi desidera imparare ad utilizzare modelli ML per la classificazione con una spiegazione allegata in italiano.
 
 ## Panoramica
 
-Il progetto è realizzato in un singolo file Python (`ml_example.py`) e dimostra i seguenti passaggi fondamentali:
+Il progetto contiene un file Python (`Esempio_Generale_ITA.py`) che serve da guida e dimostra i seguenti passaggi fondamentali:
 
 - **Generazione del Dataset:** Creazione di un dataset sintetico per la classificazione.
 - **Divisione dei Dati:** Suddivisione del dataset in set di training e test.
@@ -17,6 +19,7 @@ Il progetto è realizzato in un singolo file Python (`ml_example.py`) e dimostra
 ## Prerequisiti
 
 Assicurati di avere installato Python 3.x e le seguenti librerie:
+
 - [numpy](https://numpy.org/)
 - [matplotlib](https://matplotlib.org/)
 - [scikit-learn](https://scikit-learn.org/)
