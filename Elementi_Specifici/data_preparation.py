@@ -1,7 +1,5 @@
 #!/usr/bin/env python3
 """
-data_preparation.py
-
 Genera un dataset sintetico per la classificazione, lo divide in training e test,
 e lo salva in un file NPZ (dataset.npz).
 """
