@@ -1,7 +1,5 @@
 #!/usr/bin/env python3
 """
-train_model.py
-
 Carica il dataset di training dal file NPZ, addestra un modello di regressione logistica
 e salva il modello in 'model.pkl'.
 """
