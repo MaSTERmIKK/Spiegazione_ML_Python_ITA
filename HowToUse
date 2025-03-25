@@ -5,6 +5,16 @@ Clonare il Repository:
 git clone <URL_DEL_REPOSITORY>
 cd <NOME_DEL_REPOSITORY>
 
+Cosa Succede Durante l'Esecuzione:
+
+- Viene generato un dataset sintetico con le caratteristiche specificate.
+- Se il dataset è a 2 dimensioni, viene visualizzato un grafico a dispersione.
+- Il dataset viene diviso in set di training e test.
+- Un modello di regressione logistica viene addestrato sui dati di training.
+- Le performance del modello vengono valutate sul set di test (accuratezza, matrice di confusione e report di classificazione).
+- Il modello viene salvato in un file (model.pkl) e successivamente ricaricato per dimostrare la procedura di persistenza.
+- Viene eseguita una previsione su un campione del set di test e il risultato viene stampato.
+
 Eseguire lo Script:
 
 Il codice è contenuto in un singolo file. Per eseguirlo, basta lanciare:
