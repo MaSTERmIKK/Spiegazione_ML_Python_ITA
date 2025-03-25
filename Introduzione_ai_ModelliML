@@ -1,0 +1,17 @@
+Di seguito trovi un esempio di repository in cui il workflow di Machine Learning è suddiviso in script separati per ogni modello. In questo esempio utilizziamo un dataset sintetico (generato e salvato da un unico script) e poi addestriamo, in script differenti, quattro modelli di ML:
+
+- Logistic Regression
+- Support Vector Machine (SVM)
+- Random Forest
+- K-Nearest Neighbors (KNN)
+
+Infine, è presente uno script per valutare il modello scelto.
+
+Struttura della Repository
+.
+├── data_preparation.py       # Genera e salva il dataset sintetico
+├── train_logistic.py         # Addestra un modello di Logistic Regression
+├── train_svm.py              # Addestra un modello SVM
+├── train_random_forest.py    # Addestra un modello Random Forest
+├── train_knn.py              # Addestra un modello KNN
+└── evaluate_model.py         # Valuta il modello caricato (passandogli il file del modello)
