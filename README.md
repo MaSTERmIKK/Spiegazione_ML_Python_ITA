@@ -6,7 +6,8 @@ L'obiettivo è fornire un riferimento semplice e modulare per chi desidera impar
 
 ## Panoramica
 
-Il progetto contiene un file Python (`Esempio_Generale_ITA.py`) che serve da guida e dimostra i seguenti passaggi fondamentali:
+Vi è una sotto cartella con vari esempi dei singoli modelli.
+Il progetto contiene un file Python nel main della repository (`Esempio_Generale_ITA.py`) che serve da guida generale e dimostra generalmente i seguenti passaggi fondamentali:
 
 - **Generazione del Dataset:** Creazione di un dataset sintetico per la classificazione.
 - **Divisione dei Dati:** Suddivisione del dataset in set di training e test.
