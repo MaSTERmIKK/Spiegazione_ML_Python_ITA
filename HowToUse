@@ -9,4 +9,4 @@ Eseguire lo Script:
 
 Il codice è contenuto in un singolo file. Per eseguirlo, basta lanciare:
 
-python ml_example.py
+python ml_example.py  //il nome va inpostato rispetto al nome reale del file
