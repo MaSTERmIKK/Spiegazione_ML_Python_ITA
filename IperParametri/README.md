@@ -23,5 +23,5 @@ Gli **iperparametri** sono i parametri che definiscono il comportamento del mode
 1. **Generare il dataset:**
 
    ```bash
-   python data_preparation.py
+   python data_preparation.py   # presente nella cartella iniziale
 
