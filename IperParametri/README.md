@@ -1,31 +1,27 @@
-# ML Esempio: Applicazione Pratica di Machine Learning
+# Esempi di Hyperparameter Tuning in Machine Learning
 
-Questo repository contiene vari esempi pratici per l'uso di modelli di ML di Machine Learning in Python. 
+Questa repository contiene esempi pratici di come impostare ed ottimizzare gli iperparametri in modelli di Machine Learning utilizzando Python e scikit-learn.
 
-L'obiettivo è fornire un riferimento semplice e modulare per chi desidera imparare ad utilizzare modelli ML per la classificazione con una spiegazione allegata in italiano.
+## Cosa Sono Gli Iperparametri?
 
-## Panoramica
+Gli **iperparametri** sono i parametri che definiscono il comportamento del modello durante l'addestramento e che devono essere impostati prima dell'allenamento. Esempi:
+- **Logistic Regression:** `C` (inverso della regolarizzazione), `solver`
+- **SVM:** `C`, `kernel`, `gamma`
+- **Random Forest:** `n_estimators`, `max_depth`
+- **KNN:** `n_neighbors`, `weights`
 
-Vi è una sotto cartella con vari esempi dei singoli modelli.
-Il progetto contiene un file Python nel main della repository (`Esempio_Generale_ITA.py`) che serve da guida generale e dimostra generalmente i seguenti passaggi fondamentali:
+## Struttura della Repository
 
-- **Generazione del Dataset:** Creazione di un dataset sintetico per la classificazione.
-- **Divisione dei Dati:** Suddivisione del dataset in set di training e test.
-- **Addestramento del Modello:** Utilizzo della regressione logistica per l'addestramento.
-- **Valutazione del Modello:** Calcolo dell'accuratezza, visualizzazione della matrice di confusione e generazione di un report di classificazione.
-- **Visualizzazione dei Dati:** Creazione di un grafico a dispersione (scatter plot) per la visualizzazione dei dati (se a 2 dimensioni).
-- **Salvataggio e Caricamento:** Persistenza del modello addestrato tramite `pickle` e successiva ricarica.
-- **Previsione:** Esecuzione di una previsione su un campione di dati.
+- **data_preparation.py:** Genera un dataset sintetico per la classificazione e lo salva in un file NPZ.
+- **train_logistic_hyper.py:** Addestra una Logistic Regression ottimizzando gli iperparametri.
+- **train_svm_hyper.py:** Addestra una Support Vector Machine ottimizzando gli iperparametri.
+- **train_random_forest_hyper.py:** Addestra un modello Random Forest ottimizzando gli iperparametri.
+- **train_knn_hyper.py:** Addestra un modello K-Nearest Neighbors ottimizzando gli iperparametri.
 
-## Prerequisiti
+## Come Utilizzare
 
-Assicurati di avere installato Python 3.x e le seguenti librerie:
+1. **Generare il dataset:**
 
-- [numpy](https://numpy.org/)
-- [matplotlib](https://matplotlib.org/)
-- [scikit-learn](https://scikit-learn.org/)
+   ```bash
+   python data_preparation.py
 
-Puoi installare le dipendenze con il seguente comando:
-
-```bash
-pip install numpy matplotlib scikit-learn
